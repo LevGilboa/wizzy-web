@@ -2,7 +2,6 @@
   "name": "wizzy",
   "main": "expo-router/entry",
   "version": "1.0.0",
-  "homepage": "https://levgilboa.github.io/wizzy-web",
   "scripts": {
     "start": "npx expo start",
     "start:groq": "dotenv -e .env -- npx expo start",
