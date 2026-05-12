@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
     // אפשור CORS למקרה הצורך
     if (req.method === 'OPTIONS') {
         res.setHeader('Access-Control-Allow-Origin', '*');
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
         }
 
         // שימוש ב-Converse API שעובד באופן אחיד לכל המודלים
-        const url = `https://bedrock-runtime.${region}.amazonaws.com/model/${targetModel}/converse`;
+        const url = `<https://bedrock-runtime.${region}.amazonaws.com/model/${targetModel}/converse>`;
 
         const payload = {
             system: [{ text: systemPrompt || "אתה מורה שיוצר שאלות לימוד בעברית. החזר JSON בלבד." }],
