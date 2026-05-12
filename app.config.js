@@ -56,8 +56,7 @@ export default {
             ]
         ],
         experiments: {
-            typedRoutes: true,
-            ...(IS_PRODUCTION && { baseUrl: "/unitedHatzalah" })
+            typedRoutes: true
         },
         extra: {
             router: {
