@@ -118,17 +118,10 @@ class AIContentProcessor {
 
   // ── URL helpers ──────────────────────────────
   private getProxyUrl(path: string): string {
-    const isLocal =
-      Platform.OS === 'web' &&
-      typeof window !== 'undefined' &&
-      (window.location.hostname === 'localhost' ||
-        window.location.hostname === '127.0.0.1');
-    if (isLocal) return `http://localhost:3000${path}`;
-
-    const proxyUrl =
-      (typeof process !== 'undefined' ? process.env?.EXPO_PUBLIC_PROXY_URL : null) ||
-      Constants.expoConfig?.extra?.EXPO_PUBLIC_PROXY_URL || '';
-    return proxyUrl ? `${proxyUrl}${path}` : '';
+    // אנו מנתקים לחלוטין את השרת הישן (Render) ומכל משתנה סביבה ישן שנתקע.
+    // מעכשיו האפליקציה תמיד תפנה לנתיב היחסי (לדוגמה /api/ai-chat) 
+    // שעליו מאזין השרת המובנה של Vercel באותו הדומיין.
+    return path;
   }
 
   private getApiKey(): string | null {
